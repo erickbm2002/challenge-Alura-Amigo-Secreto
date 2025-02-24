@@ -2,7 +2,7 @@
 let amigos = [];
 
 function agregarAmigosArray() {
-    let amigoIngresado = obtenerDato("amigo").value
+    let amigoIngresado = obtenerDatoId("amigo").value
     if (!amigoIngresado) {
         return alert("Por favor ingrese un nombre valido")
     }
@@ -12,7 +12,7 @@ function agregarAmigosArray() {
 }
 
 function actulizarListaAmigos (array) {
-    let lista = obtenerDato("listaAmigos")
+    let lista = obtenerDatoId("listaAmigos")
     limpiarDatos("listaAmigos")
 
     for (let i = 0; i < array.length;i++) {
@@ -28,18 +28,18 @@ function sortearAmigo() {
         return alert("Debe primero ingresar nombres para obtener al amigo secreto")
     }
     const indiceAleatorio = Math.floor(Math.random() * amigos.length)
-    let elementoUL = obtenerDato("resultado")
+    let elementoUL = obtenerDatoId("resultado")
     elementoUL.innerHTML = amigos[indiceAleatorio]
-    obtenerDato("reiniciar").removeAttribute("disabled")
+    obtenerDatoId("reiniciar").removeAttribute("disabled")
 }
 
-function obtenerDato(elementoId) {
+function obtenerDatoId(elementoId) {
     return document.getElementById(elementoId)
 
 }
 
 function limpiarDatos(elementoId) {
-    let elementoHTML = obtenerDato(elementoId)
+    let elementoHTML = obtenerDatoId(elementoId)
     if(elementoHTML.tagName === "INPUT") {
         elementoHTML.value = "";
     } else {
@@ -49,11 +49,7 @@ function limpiarDatos(elementoId) {
 
 function reiniciarSorteo() {
     amigos = []
-    elementoHTML = obtenerDato("listaAmigos")
-    elementoHTML.innerHTML = ""
+    document.querySelector("ul").innerHTML = "";
+    obtenerDatoId("resultado").textContent = ""
 
-}
-
-function reiniciarSorteo() {
-    
 }

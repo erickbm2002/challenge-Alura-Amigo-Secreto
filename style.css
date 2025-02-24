@@ -178,11 +178,12 @@ li {
     font-size: 16px;
 }
 
-.button-delete:disabled {
-    background-color: #898989;
+.button-delete:hover {
+    background-color: #3b4fb1;
 }
 
-.button-delete:hover {
-    background-color: #3b52c7;
+.button-delete:disabled {
+    background-color: #898989;
+    cursor:no-drop;
 }
 
